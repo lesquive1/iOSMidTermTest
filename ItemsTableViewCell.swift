@@ -15,6 +15,7 @@ class ItemsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var itemNameText: UITextField!
     @IBOutlet weak var itemQttyLabel: UILabel!
+    @IBOutlet weak var stepperQtty: UIStepper!
 
     override func awakeFromNib() {
         super.awakeFromNib()

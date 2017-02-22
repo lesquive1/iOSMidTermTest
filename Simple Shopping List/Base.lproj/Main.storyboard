@@ -69,7 +69,7 @@
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="KRA-l9-cr1">
                                                     <rect key="frame" x="195" y="8" width="94" height="29"/>
                                                     <connections>
-                                                        <action selector="itemStepperAction:" destination="I5v-uO-O0m" eventType="valueChanged" id="Uc4-Bh-f6k"/>
+                                                        <action selector="itemStepperAction:" destination="I5v-uO-O0m" eventType="valueChanged" id="huw-22-PAB"/>
                                                     </connections>
                                                 </stepper>
                                             </subviews>
@@ -86,6 +86,7 @@
                                         <connections>
                                             <outlet property="itemNameText" destination="AiP-xU-GRo" id="2WE-OW-Lxj"/>
                                             <outlet property="itemQttyLabel" destination="0b3-R1-B6U" id="xmb-Nk-Smg"/>
+                                            <outlet property="stepperQtty" destination="KRA-l9-cr1" id="u2w-gf-pgA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -93,31 +94,29 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="6YS-q9-kQy"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crb-Y8-rPE">
-                                <rect key="frame" x="16" y="134" width="216" height="30"/>
-                                <state key="normal" title="New Item"/>
-                                <connections>
-                                    <action selector="addButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kAy-co-8QL"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter List Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jx-HH-Y2g">
+                                <rect key="frame" x="16" y="139" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4UB-gE-13I" firstAttribute="leading" secondItem="crb-Y8-rPE" secondAttribute="leading" id="4td-6l-HLt"/>
-                            <constraint firstItem="5q2-du-aUl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="5EX-E4-Qfh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="paU-sP-En7" secondAttribute="trailing" constant="48" id="6cW-l2-Mhm"/>
-                            <constraint firstAttribute="bottom" secondItem="EMb-54-ly2" secondAttribute="bottom" constant="20" symbolic="YES" id="7jl-bQ-Pxs"/>
-                            <constraint firstItem="4UB-gE-13I" firstAttribute="top" secondItem="5q2-du-aUl" secondAttribute="bottom" constant="8" symbolic="YES" id="8ce-Ly-7Dd"/>
-                            <constraint firstItem="5q2-du-aUl" firstAttribute="leading" secondItem="4UB-gE-13I" secondAttribute="leading" id="8j4-Wk-NBi"/>
-                            <constraint firstItem="4UB-gE-13I" firstAttribute="trailing" secondItem="EMb-54-ly2" secondAttribute="trailing" id="Dq7-c4-D0z"/>
-                            <constraint firstItem="5q2-du-aUl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RRu-hc-6hG"/>
-                            <constraint firstItem="paU-sP-En7" firstAttribute="leading" secondItem="crb-Y8-rPE" secondAttribute="trailing" constant="14" id="drh-TH-OLx"/>
-                            <constraint firstItem="crb-Y8-rPE" firstAttribute="centerY" secondItem="paU-sP-En7" secondAttribute="centerY" id="ggz-7d-xeA"/>
-                            <constraint firstItem="paU-sP-En7" firstAttribute="top" secondItem="4UB-gE-13I" secondAttribute="bottom" constant="8" symbolic="YES" id="k0t-MM-O1y"/>
-                            <constraint firstItem="EMb-54-ly2" firstAttribute="top" secondItem="paU-sP-En7" secondAttribute="bottom" constant="8" symbolic="YES" id="msr-tI-KU9"/>
-                            <constraint firstItem="5q2-du-aUl" firstAttribute="trailing" secondItem="4UB-gE-13I" secondAttribute="trailing" id="nBI-J1-NMC"/>
-                            <constraint firstItem="crb-Y8-rPE" firstAttribute="leading" secondItem="EMb-54-ly2" secondAttribute="leading" id="rwf-Hu-O6a"/>
-                            <constraint firstItem="5q2-du-aUl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="smu-C9-Ujy"/>
+                            <constraint firstItem="9Jx-HH-Y2g" firstAttribute="top" secondItem="4UB-gE-13I" secondAttribute="bottom" constant="8" symbolic="YES" id="1C9-R7-JFi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="paU-sP-En7" secondAttribute="trailing" constant="48" id="59b-VT-QfM"/>
+                            <constraint firstItem="4UB-gE-13I" firstAttribute="leading" secondItem="9Jx-HH-Y2g" secondAttribute="leading" id="5Hu-ED-YuH"/>
+                            <constraint firstItem="5q2-du-aUl" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="H4I-hr-7nq"/>
+                            <constraint firstItem="EMb-54-ly2" firstAttribute="top" secondItem="9Jx-HH-Y2g" secondAttribute="bottom" constant="8" symbolic="YES" id="MwB-6L-19t"/>
+                            <constraint firstItem="4UB-gE-13I" firstAttribute="top" secondItem="5q2-du-aUl" secondAttribute="bottom" constant="8" symbolic="YES" id="OaJ-PX-uS1"/>
+                            <constraint firstItem="9Jx-HH-Y2g" firstAttribute="baseline" secondItem="paU-sP-En7" secondAttribute="baseline" id="UVU-8s-pcd"/>
+                            <constraint firstItem="5q2-du-aUl" firstAttribute="trailing" secondItem="4UB-gE-13I" secondAttribute="trailing" id="Ueu-nW-VTf"/>
+                            <constraint firstItem="9Jx-HH-Y2g" firstAttribute="leading" secondItem="EMb-54-ly2" secondAttribute="leading" id="Urm-B4-lCZ"/>
+                            <constraint firstAttribute="bottom" secondItem="EMb-54-ly2" secondAttribute="bottom" constant="20" symbolic="YES" id="VMj-QG-OXM"/>
+                            <constraint firstItem="5q2-du-aUl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="efU-oc-gCv"/>
+                            <constraint firstItem="4UB-gE-13I" firstAttribute="trailing" secondItem="EMb-54-ly2" secondAttribute="trailing" id="gmS-Nf-tn4"/>
+                            <constraint firstItem="5q2-du-aUl" firstAttribute="leading" secondItem="4UB-gE-13I" secondAttribute="leading" id="ipU-XO-UZJ"/>
+                            <constraint firstItem="5q2-du-aUl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="tfQ-LE-4vX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping List" id="R3U-UX-CYa">
@@ -126,11 +125,7 @@
                                 <action selector="itemsCancel:" destination="BYZ-38-t0r" id="D2i-P9-vub"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rgF-6M-QZI">
-                            <connections>
-                                <action selector="saveShoppingList:" destination="BYZ-38-t0r" id="H1L-iJ-kXE"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rgF-6M-QZI"/>
                     </navigationItem>
                     <connections>
                         <outlet property="listName" destination="4UB-gE-13I" id="U11-yq-aUy"/>

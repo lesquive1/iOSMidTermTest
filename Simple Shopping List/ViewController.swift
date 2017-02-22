@@ -8,17 +8,14 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseDatabase
 
 class ViewController: UIViewController, UITableViewDataSource {
 
     var items = [Items]()
-    let ref = FIRDatabase.database().reference()
+    //let ref = FIRDatabase.database().reference()
     
     @IBOutlet weak var tableShoppingItems: UITableView!
     @IBOutlet weak var listName: UITextField!
-
     
     var tagIndex: Int = 0
     
@@ -28,25 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Use the edit button item provided by the table view controller.
         //navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.backBarButtonItem = editButtonItem
-        
-        // reading data from firebase
-        ref.observe(.value, with: { snapshot in
-            
-            var newItems: [Items] = []
-            
-            for item in snapshot.children {
-                
-                let item = Items(snapshot: item as! FIRDataSnapshot)
-                newItems.append(item)
-            }
-            
-            self.items = newItems
-            //self.tableView.reloadData()
-            self.tableShoppingItems.reloadData()
-            
-        })
-        
-        //loadTasks()
+
+        loadTasks()
         
     }
     
@@ -59,6 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let item = items[indexPath.row]
         cell.itemNameText.text = item.itemName
         cell.itemQttyLabel.text = "\(item.itemQtty)"
+        cell.stepperQtty.tag = indexPath.row
         
         return cell
     }
@@ -105,46 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         listName.text = "Shopping List"
     }
     
-    @IBAction func saveShoppingList(_ sender: UIBarButtonItem) {
-        let itemRef = self.ref.child(listName.text!)
-        let item1 = Items(itemName: "Item 1", itemQtty: 0)!
-        itemRef.setValue(item1.toAnyObject())
-    }
-    
-    // MARK: Add Item
-    
-    @IBAction func addButtonDidTouch(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Shopping List",
-                                      message: "Add an Item",
-                                      preferredStyle: .alert)
-        
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { _ in
-                                    
-                                        guard let textField = alert.textFields?.first,
-                                            let text = textField.text else { return }
-                                        
-                                        
-                                        let item = Items(itemName: text, itemQtty: 0)
 
-                                        let itemRef = self.ref.child((item?.itemName.lowercased())!)
-
-                                        itemRef.setValue(item?.toAnyObject())
-        }
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField()
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     
 }
 
