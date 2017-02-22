@@ -9,7 +9,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 
 class Items {
     // MARK: Properties
@@ -17,21 +17,21 @@ class Items {
     var itemName: String
     var itemQtty: Int
     
-    //let key: String
-    //let ref: FIRDatabaseReference?
+    let key: String
+    let ref: FIRDatabaseReference?
     
     
     // MARK: Initialization
     
     init?(itemName: String,
-          itemQtty: Int) {
+          itemQtty: Int, key: String = "") {
         
         // Initialize stored properties.
-        //self.key = key
+        self.key = key
         self.itemName = itemName
         self.itemQtty = itemQtty
 
-        //self.ref = nil
+        self.ref = nil
         
         // Initialization should fail if there is no "item" name.
         if itemName.isEmpty {
@@ -41,22 +41,20 @@ class Items {
         }
         
     }
-    /*
+
     init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        taskName = snapshotValue["taskName"] as! String
-        taskDetail = snapshotValue["taskDetail"] as! String
-        taskStatus = snapshotValue["taskStatus"] as! Bool
+        itemName = snapshotValue["itemName"] as! String
+        itemQtty = snapshotValue["itemQtty"] as! Int
         ref = snapshot.ref
     }
     
     func toAnyObject() -> Any {
         return [
-            "taskName": taskName,
-            "taskDetail": taskDetail,
-            "taskStatus": taskStatus
+            "itemName": itemName,
+            "itemQtty": itemQtty
         ]
     }
-    */
+
 }
